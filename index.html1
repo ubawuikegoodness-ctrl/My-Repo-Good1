@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <title>Random Fun Facts Slideshow</title>
+      <style>
+          body {
+                  font-family: Arial, sans-serif;
+                        text-align: center;
+                              background-color: #f0f8ff;
+                                    margin: 50px;
+          }
+              h1 {
+                      color: #333;
+              }
+                  #fact {
+                          margin: 20px;
+                                font-size: 1.3em;
+                                      color: #444;
+                                            min-height: 60px;
+                                                  opacity: 0;
+                                                        transition: opacity 1s ease-in-out;
+                  }
+                      button {
+                              padding: 10px 20px;
+                                    font-size: 1em;
+                                          background-color: #4CAF50;
+                                                color: white;
+                                                      border: none;
+                                                            cursor: pointer;
+                                                                  border-radius: 5px;
+                                                                        margin: 5px;
+                      }
+                          button:hover {
+                                  background-color: #45a049;
+                          }
+                              #progress-container {
+                                      width: 80%;
+                                            height: 10px;
+                                                  background-color: #ddd;
+                                                        margin: 20px auto;
+                                                              border-radius: 5px;
+                                                                    overflow: hidden;
+                              }
+                                  #progress-bar {
+                                          height: 100%;
+                                                width: 0%;
+                                                      background-color: #4CAF50;
+                                                            transition: width 5s linear;
+                                  }
+                                    </style>
+                                    </head>
+                                    <body>
+                                      <h1>Random Fun Facts</h1>
+                                        <div id="fact">Get ready for some fun facts!</div>
+                                          <div id="progress-container">
+                                              <div id="progress-bar"></div>
+                                                </div>
+                                                  <button onclick="showFact()">Show Fact Now</button>
+                                                    <button onclick="toggleSlideshow()" id="toggleBtn">Pause</button>
+
+                                                      <script>
+                                                          const facts = [
+                                                                  "Bananas are berries, but strawberries are not.",
+                                                                        "Honey never spoils. Archaeologists have found edible honey in ancient tombs.",
+                                                                              "Octopuses have three hearts.",
+                                                                                    "Sharks existed before trees.",
+                                                                                          "A day on Venus is longer than a year on Venus.",
+                                                                                                "Sloths can hold their breath longer than dolphins.",
+                                                                                                      "The Eiffel Tower can grow taller in summer due to heat expansion."
+                                                          ];
+
+                                                              const interval = 5000; // 5 seconds
+                                                                  let timer;
+                                                                      let isPaused = false;
+
+                                                                          function showFact() {
+                                                                                  const factElement = document.getElementById("fact");
+                                                                                        const progressBar = document.getElementById("progress-bar");
+                                                                                              const randomIndex = Math.floor(Math.random() * facts.length);
+
+                                                                                                    // Fade out
+                                                                                                          factElement.style.opacity = 0;
+
+                                                                                                                setTimeout(() => {
+                                                                                                                            factElement.innerText = facts[randomIndex];
+                                                                                                                                    // Fade in
+                                                                                                                                            factElement.style.opacity = 1;
+                                                                                                                }, 500);
+
+                                                                                                                      // Reset progress bar
+                                                                                                                            progressBar.style.transition = "none";
+                                                                                                                                  progressBar.style.width = "0%";
+                                                                                                                                        setTimeout(() => {
+                                                                                                                                                    progressBar.style.transition = `width ${interval/1000}s linear`;
+                                                                                                                                                            progressBar.style.width = "100%";
+                                                                                                                                        }, 50);
+
+                                                                                                                                              // Reset timer if not paused
+                                                                                                                                                    if (!isPaused) {
+                                                                                                                                                                clearInterval(timer);
+                                                                                                                                                                        timer = setInterval(showFact, interval);
+                                                                                                                                                    }
+                                                                          }
+
+                                                                              function toggleSlideshow() {
+                                                                                      const toggleBtn = document.getElementById("toggleBtn");
+                                                                                            if (isPaused) {
+                                                                                                        // Resume
+                                                                                                                isPaused = false;
+                                                                                                                        toggleBtn.innerText = "Pause";
+                                                                                                                                showFact(); // restart immediately
+                                                                                            } else {
+                                                                                                        // Pause
+                                                                                                                isPaused = true;
+                                                                                                                        toggleBtn.innerText = "Resume";
+                                                                                                                                clearInterval(timer);
+                                                                                                                                        document.getElementById("progress-bar").style.transition = "none";
+                                                                                            }
+                                                                              }
+
+                                                                                  // Start slideshow on load
+                                                                                      window.onload = showFact;
+                                                                                        </script>
+                                                                                        </body>
+                                                                                        </html>
+                                                                                            }
+                                                                                            }
+                                                                              }
+                                                                                                                                                    }
+                                                                                                                                        })
+                                                                                                                })
+                                                                          }
+                                                          ]
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }

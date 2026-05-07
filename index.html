@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fun Facts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .fact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .fact-counter {
+            color: #999;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 Random Fun Facts</h1>
+        <div class="fact-box" id="factDisplay">
+            Click the button to see a fun fact!
+        </div>
+        <button onclick="displayRandomFact()">Get Random Fact</button>
+        <div class="fact-counter">
+            <span id="factCount">0</span> / <span id="totalFacts">0</span> facts shown
+        </div>
+    </div>
+
+    <script>
+        const facts = [
+            "Honey never spoils! Jars of honey from ancient Egypt, over 3,000 years old, have been found and are still perfectly edible.",
+            "A group of flamingos is called a 'flamboyance.'",
+            "Octopuses have three hearts. Two pump blood to the gills, and one pumps it to the rest of the body.",
+            "Bananas are berries, but strawberries aren't! Botanically, bananas and grapes are berries, while strawberries are not.",
+            "A day on Venus is longer than a year on Venus. Venus takes 243 Earth days to rotate, but only 225 days to orbit the sun.",
+            "Cleopatra lived closer to the invention of the iPhone than to the construction of the Great Pyramid.",
+            "Wombats have cube-shaped poop. Scientists believe this shape prevents the poop from rolling away.",
+            "Dolphins have names for each other, which they use to call out to friends.",
+            "A group of crows is called a 'murder.'",
+            "Scotland's national animal is a unicorn.",
+            "Cats spend 70% of their lives sleeping, which is 13-16 hours a day!",
+            "The smell of fresh-cut grass is actually a chemical distress signal released by the grass.",
+            "Ants don't have ears, but they can sense vibrations through their feet.",
+            "A cockroach can live for a week without its head.",
+            "The Sahara Desert was green and full of water 6,000 years ago.",
+            "Shrimp have transparent hearts and can see ultraviolet light.",
+            "The shortest war in history lasted only 38-45 minutes between Britain and Zanzibar in 1896.",
+            "Turkeys can run up to 11 mph and fly up to 55 mph in short bursts.",
+            "A group of porcupines is called a 'prickle.'",
+            "Polar bears are actually black underneath their white fur.",
+            "Carrots were originally purple, not orange.",
+            "The moon is moving away from Earth at about 1.5 inches per year.",
+            "Russia has 11 time zones.",
+            "Hot water freezes faster than cold water in some conditions, called the Mpemba effect.",
+            "Snails can sleep for up to 3 years without food.",
+            "A jiffy is an actual unit of time equal to one trillionth of a second."
+        ];
+
+        let factsShown = 0;
+
+        function displayRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const randomFact = facts[randomIndex];
+            
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.textContent = randomFact;
+            
+            factsShown++;
+            document.getElementById('factCount').textContent = factsShown;
+            document.getElementById('totalFacts').textContent = facts.length;
+        }
+
+        // Display initial fact count
+        document.getElementById('totalFacts').textContent = facts.length;
+    </script>
+</body>
+</html>
